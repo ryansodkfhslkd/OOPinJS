@@ -25,10 +25,10 @@
 		document.addEventListener('contextmenu', event => event.preventDefault());
 		
 		let score = 0;
-		let seconds = 0;
+		let seconds = -1;
 		let play = true;
 		let bubbles = [];
-		let numberBubbles = 250;
+		let numberBubbles = 25;
 		let minBubbleSize = 100;
 		let maxBubbleSize = 500;
 		let maxSpeed = 10;
@@ -117,7 +117,8 @@
 				bubbles[i].speedX = random(-maxSpeed, maxSpeed);
 				bubbles[i].speedY = random(-maxSpeed, maxSpeed);
 			}
-			randomizeColors()
+			maxSpeed += random(-1, 2);
+			randomizeColors();
 		}
 		function randomizeColors()
 		{
