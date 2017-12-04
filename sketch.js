@@ -9,6 +9,7 @@ let minBubbleSize = 100;
 let maxBubbleSize = 500;
 let maxSpeed = 10;
 let backgroundc = [0, 0, 0, 100];
+sound = new Audio("pop.mp3");
 timer();
 
 class Bubble
