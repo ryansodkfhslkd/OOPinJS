@@ -4,12 +4,12 @@ let score = 0;
 let seconds = -1;
 let play = true;
 let bubbles = [];
-let numberBubbles = 25;
+let numberBubbles = 2500;
 let minBubbleSize = 100;
 let maxBubbleSize = 500;
 let maxSpeed = 10;
 let backgroundc = [0, 0, 0, 100];
-sound = new Audio("pop.mp3");
+let pop = new Audio("pop.mp3");
 timer();
 
 class Bubble
@@ -83,18 +83,20 @@ function mousePressed()
 		{
 			bubbles.splice(i,1);
 			bubbleClicked();
+			pop.play();
 			score++;
 		}
 	}
 }
 function bubbleClicked()
 {
+	maxSpeed += random(-.5, .5);
+	console.log(maxSpeed);
 	for(let i = 0; i < bubbles.length; i++)
 	{
 		bubbles[i].speedX = random(-maxSpeed, maxSpeed);
 		bubbles[i].speedY = random(-maxSpeed, maxSpeed);
 	}
-	maxSpeed += random(-1, 2);
 	randomizeColors();
 }
 function randomizeColors()
