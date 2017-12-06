@@ -5,8 +5,8 @@ let seconds = -1;
 let play = true;
 let bubbles = [];
 let numberBubbles = 2500;
-let minBubbleSize = 100;
-let maxBubbleSize = 500;
+let minBubbleSize = Math.abs(window.innerWidth - window.innerHeight) / 8;
+let maxBubbleSize = Math.abs(window.innerWidth - window.innerHeight) / 8 * 4;
 let maxSpeed = 10;
 let backgroundc = [0, 0, 0, 100];
 let pop = new Audio("pop.mp3");
@@ -91,7 +91,6 @@ function mousePressed()
 function bubbleClicked()
 {
 	maxSpeed += random(-.5, .5);
-	console.log(maxSpeed);
 	for(let i = 0; i < bubbles.length; i++)
 	{
 		bubbles[i].speedX = random(-maxSpeed, maxSpeed);
